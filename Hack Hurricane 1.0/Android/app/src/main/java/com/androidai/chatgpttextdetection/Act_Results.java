@@ -57,5 +57,5 @@ public class Act_Results extends AppCompatActivity {
         },
         "code": 200,
         "message": "Detection complete"
-        }
+}
  */
