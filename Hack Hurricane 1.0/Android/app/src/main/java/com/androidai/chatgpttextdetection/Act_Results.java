@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Toast;
 
 import com.androidai.chatgpttextdetection.databinding.ActivityActResultsBinding;
@@ -18,20 +19,20 @@ import com.androidai.chatgpttextdetection.databinding.ActivityActResultsBinding;
 public class Act_Results extends AppCompatActivity {
 
     ActivityActResultsBinding binding;
+    Handler handler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityActResultsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         SharedPreferences sp = getSharedPreferences("BASE_APP",MODE_PRIVATE);
-        int isHumanWritten = (int)Double.parseDouble(sp.getString("isHumanWritten","0"));
-        int isGptGenerated = (int)Double.parseDouble(sp.getString("isGptGenerated","0"));
+        int isHumanWritten = (int) Math.floor(Double.parseDouble(sp.getString("isHumanWritten", "0")));
+        int isGptGenerated = (int) Math.floor(Double.parseDouble(sp.getString("isGptGenerated", "0")));
         String wordsCount = sp.getString("wordsCount","0");
-        binding.wordcount.setText(wordsCount);
-        binding.human.setText(isHumanWritten);
-        binding.gpt.setText(isGptGenerated);
-        binding.progressBar1.setProgress(isHumanWritten, true);
-        binding.progressBar2.setProgress(isGptGenerated, true);
+        binding.wordcount.setText("Word Count: "+wordsCount);
+        binding.human.setText(isHumanWritten+"%");
+        binding.gpt.setText(isGptGenerated+"%");
+
         binding.progressBar1.setMax(100);
         binding.progressBar2.setMax(100);
         if(isGptGenerated>isHumanWritten){
@@ -39,6 +40,25 @@ public class Act_Results extends AppCompatActivity {
         }else{
             binding.feedback.setText("Feedback: The Content is Human Written");
         }
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        binding.progressBar1.setProgress(isHumanWritten, true);
+                        binding.progressBar2.setProgress(isGptGenerated, true);
+                    }
+                });
+            }
+        },500);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        handler.removeCallbacks(null);
     }
 }
 /*

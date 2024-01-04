@@ -48,14 +48,16 @@ public class Act_OCR extends AppCompatActivity {
     List<Bitmap> capturedImages;
     RecyclerView rv_products;
     Ad_Images ad_products;
-    ImageView back;
+    ImageView back,scan;
     ProgressBar progress_circular;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_ocr);
         capturedImages = new ArrayList<>();
         rv_products = findViewById(R.id.rv_products);
+        scan = findViewById(R.id.scan);
         progress_circular = findViewById(R.id.progress_circular);
         back = findViewById(R.id.back);
         GridLayoutManager linearLayoutManager = new GridLayoutManager(this,2);
@@ -80,6 +82,7 @@ public class Act_OCR extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            scan.setVisibility(View.GONE);
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             capturedImages.add(imageBitmap);

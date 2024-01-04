@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,6 +41,7 @@ public class Ad_Images extends RecyclerView.Adapter<Ad_Images.CategoryViewHolder
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.iv1.setImageBitmap(items.get(position));
+        holder.counter.setText(position+1+"");
     }
 
 
@@ -50,10 +52,12 @@ public class Ad_Images extends RecyclerView.Adapter<Ad_Images.CategoryViewHolder
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder {
         ImageView iv1;
+        TextView counter;
 
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             iv1 = itemView.findViewById(R.id.image);
+            counter = itemView.findViewById(R.id.counter);
 
         }
     }

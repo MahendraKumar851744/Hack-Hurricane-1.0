@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".MainActivity">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -104,4 +105,14 @@
         android:visibility="gone"
         android:indeterminateTint="@color/global"
         android:id="@+id/progress_circular"/>
+
+    <ImageView
+        android:id="@+id/scan"
+        android:layout_width="150dp"
+        android:layout_marginBottom="20dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/inspection"/>
+
+
 </RelativeLayout>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
     <RelativeLayout
@@ -32,43 +33,44 @@
             android:textSize="18sp" />
     </RelativeLayout>
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:layout_above="@+id/submit"
         android:layout_below="@+id/header"
-        app:cardBackgroundColor="#EFEEF4"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="1dp"
-        >
-        <ScrollView
+        android:layout_height="match_parent">
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="#EFEEF4"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="1dp"
+            >
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="10dp"
-                android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/text"
+                android:layout_height="match_parent">
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#00FFFFFF"
-                    android:fontFamily="@font/poppins"
-                    android:hint="Enter the text...."
-                    android:paddingHorizontal="15dp"
-                    android:singleLine="true"
-                    android:textColor="#000000"
-                    android:textColorHint="#7D879B"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </ScrollView>
-    </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    android:orientation="vertical">
 
-
+                    <EditText
+                        android:id="@+id/text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#00FFFFFF"
+                        android:fontFamily="@font/poppins"
+                        android:hint="Enter the text...."
+                        android:paddingHorizontal="15dp"
+                        android:textColor="#000000"
+                        android:textColorHint="#7D879B"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </ScrollView>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/submit"
@@ -87,7 +89,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="onSubmitButtonClick"
             android:background="@drawable/rounded_corner3"
             android:backgroundTint="#FFDE2E">
 
@@ -110,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:visibility="gone"
+
         android:indeterminateTint="@color/global"
         android:id="@+id/progress_circular"/>
 </RelativeLayout>
