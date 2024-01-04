@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "441654018635",
+    "project_id": "hack-hurricane",
+    "storage_bucket": "hack-hurricane.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441654018635:android:5f2a807d6f310fce1f03ce",
+        "android_client_info": {
+          "package_name": "com.androidai.chatgpttextdetection"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx2bBFOOm4fjh4lAlN_kD6YiFxynYGiDQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
