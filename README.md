@@ -1,4 +1,4 @@
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/_Beeh9_kbhQ/0.jpg)](https://www.youtube.com/watch?v=_Beeh9_kbhQ)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/_Beeh9_kbhQ/1.jpg)](https://www.youtube.com/watch?v=_Beeh9_kbhQ)
 
 This is a project made in the Hakathon "Hack Hurricane 1.0" solely.
 
